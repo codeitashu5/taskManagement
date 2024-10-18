@@ -9,7 +9,7 @@ This is a GoLang API for managing tasks. It provides functionalities for registe
 * JWT Authentication (for secure access)
 
 ## Environment Variables
-------------------------------------------------------------------------------------|
+
 | Variable                  | Description                                           |
 |---------------------------|-------------------------------------------------------|
 | DB_NAME                   | ashutosh                                              |
