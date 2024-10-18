@@ -21,7 +21,7 @@ This is a GoLang API for managing tasks. It provides functionalities for registe
 ## API Documentation
 
 **Base URL:** 
-`http://localhost:5000`
+`http://localhost:5000/users`
 
 **Authentication:**
 
