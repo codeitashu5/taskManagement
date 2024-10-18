@@ -30,9 +30,9 @@ Response:
 Status Code: 200 OK
 BODY:
 {
-    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjkzMzY1NDksImlhdCI6MTcyOTI5MzM0OSwidHlwZSI6ImFjY2VzcyIsInVpZCI6IjY3MTJlYzI1OGEyMGUzMTVkY2UyMTNiMiIsImVtYWlsIjoiIn0.VlU_PUQnLS5yaaXiThEO6Q2-FaUYJtgrYld6sRcMwWL50Cs5xgw4O2SWMIV9i89FruPEMX7V2a7lHqcZGTiHhw",
+    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
     "expiresIn": 43200,
-    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzE4ODUzNDksImlhdCI6MTcyOTI5MzM0OSwidHlwZSI6InJlZnJlc2giLCJ1aWQiOiI2NzEyZWMyNThhMjBlMzE1ZGNlMjEzYjIifQ.NNbA7lo5cnG4QampucYCup7eTyBwwfLI-PFGFR_szyLDofY_lbowYNbzGur091nYwdDzVWLZx-4qkDy1b6ra6w",
+    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
     "refreshTokenExpiresIn": 2592000
 }
 
@@ -51,9 +51,9 @@ Response:
 Status Code: 200 OK
 BODY:
 {
-    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjkzMzY1NDksImlhdCI6MTcyOTI5MzM0OSwidHlwZSI6ImFjY2VzcyIsInVpZCI6IjY3MTJlYzI1OGEyMGUzMTVkY2UyMTNiMiIsImVtYWlsIjoiIn0.VlU_PUQnLS5yaaXiThEO6Q2-FaUYJtgrYld6sRcMwWL50Cs5xgw4O2SWMIV9i89FruPEMX7V2a7lHqcZGTiHhw",
+    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9....",
     "expiresIn": 43200,
-    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzE4ODUzNDksImlhdCI6MTcyOTI5MzM0OSwidHlwZSI6InJlZnJlc2giLCJ1aWQiOiI2NzEyZWMyNThhMjBlMzE1ZGNlMjEzYjIifQ.NNbA7lo5cnG4QampucYCup7eTyBwwfLI-PFGFR_szyLDofY_lbowYNbzGur091nYwdDzVWLZx-4qkDy1b6ra6w",
+    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
     "refreshTokenExpiresIn": 2592000
 }
 
