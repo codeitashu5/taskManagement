@@ -174,3 +174,16 @@ Response:
   "message": "Task deleted"
 }
 ```
+
+**SAMPLE SEVER EXECUTION RESPONSE**
+***server connection successful***
+
+ ┌───────────────────────────────────────────────────┐ 
+ │                   Fiber v2.52.5                   │ 
+ │               http://127.0.0.1:5000               │ 
+ │       (bound on host 0.0.0.0 and port 5000)       │ 
+ │                                                   │ 
+ │ Handlers ............ 13  Processes ........... 1 │ 
+ │ Prefork ....... Disabled  PID ............. 28240 │ 
+ └───────────────────────────────────────────────────┘ 
+
