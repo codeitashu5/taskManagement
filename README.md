@@ -175,8 +175,6 @@ Response:
 }
 ```
 
-***server connection successful***
-
 **Server Information:**
 
 * **Fiber Version:** v2.52.5
