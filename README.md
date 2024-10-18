@@ -141,7 +141,9 @@ Body:
 
 Delete Task
 -----------
-Method: DELETE
+
+
+Method: DELETE   
 Endpoint: /tasks/{taskId}
 Path Parameters:
 taskId (string): The ID of the task to delete.
