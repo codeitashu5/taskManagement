@@ -9,15 +9,15 @@ This is a GoLang API for managing tasks. It provides functionalities for registe
 * JWT Authentication (for secure access)
 
 ## Environment Variables
-
-| Variable                 | Description                                            |
+------------------------------------------------------------------------------------|
+| Variable                  | Description                                           |
 |---------------------------|-------------------------------------------------------|
 | DB_NAME                   | ashutosh                                              |
 | DB_PASSWORD               | rtx2080ti                                             |
 | JWT_KEY                   |  task-management-jwt-key                              |
 | USER_COLLECTION           |  task                                                 |
 | TASK_COLLECTION           |  user                                                 |
-
+-------------------------------------------------------------------------------------
 ## API Documentation
 
 **Base URL:** 
@@ -36,7 +36,7 @@ This API uses JWT authentication. Users can register and obtain access and refre
 
 **Request Body:**
 
-
+```json
 {
   "firstname": "string",
   "lastname": "string",
@@ -51,12 +51,14 @@ Response:
   "refreshToken": "string", // JWT refresh token
   "refreshTokenExpiresIn": number // Refresh token expiration time in seconds
 }
+```
 
-2. Login:
+**2. Login:**
 
-Method: POST
-Endpoint: /login
+**Method:** POST
+**Endpoint:** /login
 
+```json
 Request Body:
 
 JSON
@@ -72,16 +74,16 @@ Response:
   "refreshToken": "string", // JWT refresh token
   "refreshTokenExpiresIn": number // Refresh token expiration time in seconds
 }
+```
 
-3. Create Task:
+**3.Create Task:**
 
-Method: POST
-Endpoint: /tasks/
+**Method:** POST
+**Endpoint:** /tasks/
 Authorization: Required (Bearer token)
 
 Request Body:
-
-JSON
+```json
 {
   "task": "string" // The description of the task
 }
@@ -91,17 +93,19 @@ Response:
 {
   "message": "Task created"
 }
+```
 
-4. Get Single Task:
+**4.Get Single Task:**
 
-Method: GET
-Endpoint: /tasks/{taskId}
+**Method:** GET
+**Endpoint:** /tasks/{taskId}
 
 Authorization: Required (Bearer token)
 
 Path Parameters:
-
 {taskId} (string): The ID of the task to retrieve.
+
+```json
 Response:
 {
   "_id": "string",
@@ -109,16 +113,17 @@ Response:
   "task": "string",
   "created_at": "string" // ISO 8601 formatted date and time
 }
+```
 
-5. Get All Tasks:
+**5. Get All Tasks:**
 
-Method: GET
-Endpoint: /tasks/
+**Method:** GET
+**Endpoint:** /tasks/
 
 Authorization: Required (Bearer token)
 
 Response:
-
+```json
 [
   {
     "_id": "string",
@@ -128,19 +133,20 @@ Response:
   },
   // ... (other tasks)
 ]
+```
 
-6. Update Task:
+**6. Update Task:**
 
-Method: PUT
-Endpoint: /tasks/{taskId}
+**Method: PUT**
+**Endpoint: /tasks/{taskId}**
 
 Authorization: Required (Bearer token)
 
 Path Parameters:
-
 {taskId} (string): The ID of the task to update.
 Request Body:
 
+```json
 {
   "task": "string" // The updated description of the task
 }
@@ -149,19 +155,22 @@ Response:
 {
   "message": "Task updated"
 }
+```
 
 
-7. Delete Task:
+**7. Delete Task:**
 
-Method: DELETE
-Endpoint: /tasks/{taskId}
+**Method: DELETE**
+**Endpoint: /tasks/{taskId}**
 
 Authorization: Required (Bearer token)
 
 Path Parameters:
-
 {taskId} (string): The ID of the task to delete.
+
+```json
 Response:
 {
   "message": "Task deleted"
 }
+```
