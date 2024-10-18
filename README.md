@@ -175,15 +175,22 @@ Response:
 }
 ```
 
-**SAMPLE SEVER EXECUTION RESPONSE**
 ***server connection successful***
 
- ┌───────────────────────────────────────────────────┐ 
- │                   Fiber v2.52.5                   │ 
- │               http://127.0.0.1:5000               │ 
- │       (bound on host 0.0.0.0 and port 5000)       │ 
- │                                                   │ 
- │ Handlers ............ 13  Processes ........... 1 │ 
- │ Prefork ....... Disabled  PID ............. 28240 │ 
- └───────────────────────────────────────────────────┘ 
+**Server Information:**
+
+* **Fiber Version:** v2.52.5
+* **HTTP Address:** http://127.0.0.1:5000
+* **Bound Host:** 0.0.0.0
+* **Bound Port:** 5000
+
+**Resource Usage:**
+
+* **Handlers:** 13
+* **Processes:** 1
+
+**Configuration:**
+
+* **Prefork:** Disabled
+* **Process ID (PID):** 28240
 
