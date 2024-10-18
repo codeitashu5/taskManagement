@@ -1,159 +1,206 @@
-Golang -- Envornment veriables -- need to add these before executing the project
+# Task Management API (GoLang)
 
-*******************************
-DB_NAME=ashutosh                  
-DB_PASSWORD=rtx2080ti             
-JWT_KEY=task-management-jwt-key   
-USER_COLLECTION=user              
-TASK_COLLECTION=task            
-******************************
+This is a GoLang API for managing tasks. It provides functionalities for registering users, logging in, creating, retrieving, updating, and deleting tasks.
 
-API DOC
-*******
+## Features
 
-BASE-URL === localhost:5000/users -- BY DEFAULT THE LOCAL HOST IS SET TO 5000
+* User Registration and Login
+* Task Creation, Retrieval (Single and All), Update, and Deletion
+* JWT Authentication (for secure access)
 
-Register User
--------------
+## Environment Variables
 
-Method: POST
-Endpoint: /register
-Request Body:
+| Variable                 | Description                                            |
+|---------------------------|-------------------------------------------------------|
+| DB_NAME                   | ashutosh                                              |
+| DB_PASSWORD               | rtx2080ti                                             |
+| JWT_KEY                   |  task-management-jwt-key                              |
+| USER_COLLECTION           |  task                                                 |
+| TASK_COLLECTION           |  user                                                 |
+
+## API Documentation
+
+**Base URL:** 
+`http://localhost:5000`
+
+**Authentication:**
+
+This API uses JWT authentication. Users can register and obtain access and refresh tokens upon successful login. These tokens are required in the Authorization header for subsequent requests.
+
+**Endpoints:**
+
+**1. Register User:**
+
+**Method:** POST
+**Endpoint:** `/register`
+
+**Request Body:**
+
+```json
 {
-  "firstname": "ashutosh",
-  "lastname": "pandey",
-  "email": "adsdfsarsh@gmail.com",
-  "password": "password123"
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "password": "string"
 }
-
 Response:
-Status Code: 200 OK
-BODY:
+
+JSON
 {
-    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
-    "expiresIn": 43200,
-    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
-    "refreshTokenExpiresIn": 2592000
+  "accessToken": "string",  // JWT access token
+  "expiresIn": number,      // Access token expiration time in seconds
+  "refreshToken": "string", // JWT refresh token
+  "refreshTokenExpiresIn": number // Refresh token expiration time in seconds
 }
+Use code with caution.
 
+2. Login:
 
-Login
------
 Method: POST
 Endpoint: /login
+
 Request Body:
+
+JSON
 {
-  "email": "adsdfsarsh@gmail.com",
-  "password": "password123"
+  "email": "string",
+  "password": "string"
 }
+Use code with caution.
 
 Response:
-Status Code: 200 OK
-BODY:
+
+JSON
 {
-    "accessToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9....",
-    "expiresIn": 43200,
-    "refreshToken": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.....",
-    "refreshTokenExpiresIn": 2592000
+  "accessToken": "string",  // JWT access token
+  "expiresIn": number,      // Access token expiration time in seconds
+  "refreshToken": "string", // JWT refresh token
+  "refreshTokenExpiresIn": number // Refresh token expiration time in seconds
 }
+Use code with caution.
 
+3. Create Task:
 
-Create Task
---------------
 Method: POST
 Endpoint: /tasks/
+
+Authorization: Required (Bearer token)
+
 Request Body:
+
+JSON
 {
-    "task": "SOME TASK TO CREATE"  // The description of the task
+  "task": "string" // The description of the task
 }
+Use code with caution.
 
 Response:
-Status Code: 200 OK
-Body:
-{
-    "message": "Task created"
-}
 
-Get Single Task
----------------
+JSON
+{
+  "message": "Task created"
+}
+Use code with caution.
+
+4. Get Single Task:
+
 Method: GET
 Endpoint: /tasks/{taskId}
+
+Authorization: Required (Bearer token)
+
 Path Parameters:
-taskId (string): The ID of the task to retrieve.
 
-
+{taskId} (string): The ID of the task to retrieve.
 Response:
-Status Code: 200 OK
-Body:
-{
-    "_id": "6712e0405bc27c94aa1ec906",
-    "user_id": "6712c18bf68bd665883b4c8c",
-    "task": "new task api",
-    "created_at": "2024-10-18T22:25:04.212Z"
-}
 
-Get All Tasks
--------------
+JSON
+{
+  "_id": "string",
+  "user_id": "string",
+  "task": "string",
+  "created_at": "string" // ISO 8601 formatted date and time
+}
+Use code with caution.
+
+5. Get All Tasks:
+
 Method: GET
 Endpoint: /tasks/
 
+Authorization: Required (Bearer token)
+
 Response:
-Status Code: 200 OK
-[ 
-   .....
-    {
-        "_id": "6712e0405bc27c94aa1ec906",
-        "user_id": "6712c18bf68bd665883b4c8c",
-        "task": "new task api",
-        "created_at": "2024-10-18T22:25:04.212Z"
-    },
-    {
-        "_id": "6712e0405bc27c94aa1ec906",
-        "user_id": "6712c18bf68bd665883b4c8c",
-        "task": "new task api",
-        "created_at": "2024-10-18T22:25:04.212Z"
-    }
-    ......
-   
+
+JSON
+[
+  {
+    "_id": "string",
+    "user_id": "string",
+    "task": "string",
+    "created_at": "string" // ISO 8601 formatted date and time
+  },
+  // ... (other tasks)
 ]
+Use code with caution.
 
-
-
-Update Task
------------
+6. Update Task:
 
 Method: PUT
 Endpoint: /tasks/{taskId}
+
+Authorization: Required (Bearer token)
+
 Path Parameters:
-taskId (string): The ID of the task to update.
+
+{taskId} (string): The ID of the task to update.
 Request Body:
-Copy code
+
+JSON
 {
-    "task": "SOME GIVEN TASK"  // The updated description of the task
+  "task": "string" // The updated description of the task
 }
+Use code with caution.
 
 Response:
-Status Code: 200 OK
-Body:
+
+JSON
 {
-    "message": "Task updated"
+  "message": "Task updated"
 }
+Use code with caution.
 
-Delete Task
------------
+7. Delete Task:
 
-
-Method: DELETE   
+Method: DELETE
 Endpoint: /tasks/{taskId}
+
+Authorization: Required (Bearer token)
+
 Path Parameters:
-taskId (string): The ID of the task to delete.
 
+{taskId} (string): The ID of the task to delete.
 Response:
-Status Code: 200 OK
-Body:
+
+JSON
 {
-    "message": "Task deleted"
+  "message": "Task deleted"
 }
+Use code with caution.
 
-
-
+Installation
+Clone the repository:
+git clone [invalid URL removed]
+Change to the project directory:
+cd task-management-api
+Install dependencies:
+go get
+Create a .env file and add the following environment variables:
+DB_NAME
+DB_PASSWORD
+JWT_KEY
+USER_COLLECTION
+TASK_COLLECTION
+Run the server:
+go run main.go
+The API should now be running on port 5000. You can access the API endpoints using a web browser or any HTTP client.
