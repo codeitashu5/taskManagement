@@ -36,7 +36,7 @@ This API uses JWT authentication. Users can register and obtain access and refre
 
 **Request Body:**
 
-```json
+
 {
   "firstname": "string",
   "lastname": "string",
