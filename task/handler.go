@@ -8,6 +8,7 @@ import (
 	"taskManagement/middleware"
 	"taskManagement/models"
 	"taskManagement/validator"
+	"time"
 )
 
 type Handler struct {
@@ -22,9 +23,10 @@ func NewHandler(service *Service) *Handler {
 
 func (h *Handler) Serve(router fiber.Router) {
 	router.Post("/register", h.registerUser) // register the user and return access token and refresh token
-	router.Post("/login", h.login)           // login user and return the access and refresh token
+	router.Post("/login", h.login)
 
 	router.Use(middleware.ParseToken)
+	router.Post("/logout", h.logout)
 	router.Route("/tasks/", func(taskRouter fiber.Router) {
 		taskRouter.Post("/", h.createTask)          // Create a new task
 		taskRouter.Delete("/:taskId", h.deleteTask) // Delete a task (with archived_at check)
@@ -149,4 +151,15 @@ func (h *Handler) updateTask(c *fiber.Ctx) error {
 	return c.Status(http.StatusOK).JSON(models.MessageResponse{
 		Message: "Task updated",
 	})
+}
+
+func (h *Handler) logout(c *fiber.Ctx) error {
+	// Clear the JWT cookie by setting an empty value and an expiration date in the past
+	c.Cookie(&fiber.Cookie{
+		Name:    "jwt",
+		Value:   "",
+		Expires: time.Now().Add(-time.Hour), // Set expiration time to the past
+	})
+
+	return c.Status(http.StatusOK).SendString("Successfully logged out")
 }

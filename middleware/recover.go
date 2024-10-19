@@ -14,6 +14,7 @@ import (
 	"taskManagement/jwt"
 	"taskManagement/models"
 	"taskManagement/mongoClient"
+	"time"
 )
 
 const contextKey = "task-jwt-claims"
@@ -37,6 +38,17 @@ func ParseToken(c *fiber.Ctx) error {
 	claims, err := jwt.ParseAccessToken(token)
 	if err != nil {
 		return c.Status(http.StatusUnauthorized).SendString(err.Error())
+	}
+
+	// Check if the token has an expiration time
+	// Check if claims.ExpiresAt is nil
+	if claims.ExpiresAt == nil {
+		return c.Status(http.StatusUnauthorized).SendString("Token does not have an expiration time")
+	}
+
+	// Check if the token has expired
+	if claims.ExpiresAt.Time.Before(time.Now()) {
+		return c.Status(http.StatusUnauthorized).SendString("Token expired")
 	}
 
 	// get the collection validate user
