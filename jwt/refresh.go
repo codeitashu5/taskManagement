@@ -11,10 +11,7 @@ import (
 const (
 	// The RefreshTokenDuration can be longer - the calling application can store this value and use it to request new
 	// access tokens. During token refresh, we return a new (accessToken, refreshToken) pair.
-	//
-	// In practice, it's just as easy to get a new access token with the normal /token endpoint
-	// (with username/password), so the refresh token may not be used by most task.
-	//
+
 	RefreshTokenDuration = 24 * 30 * time.Hour // 30 days
 )
 
@@ -41,9 +38,4 @@ func NewRefreshToken(user models.User) (string, error) {
 		Type:             TokenTypeRefresh,
 		UserID:           user.ID,
 	})
-}
-
-func ParseRefreshToken(tokenStr string) (claims RefreshTokenClaims, err error) {
-	err = parse(tokenStr, &claims)
-	return
 }

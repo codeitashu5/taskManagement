@@ -5,6 +5,8 @@ import (
 	"errors"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
+	"log"
 	"taskManagement/envornment"
 )
 
@@ -19,7 +21,14 @@ func SetUpMongo() error {
 	}
 
 	MongoDB, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	return err
+
+	err = MongoDB.Ping(context.Background(), readpref.Primary())
+	if err != nil {
+		return err
+	}
+
+	log.Println("Connected to MongoDB")
+	return nil
 }
 
 func ShutdownMongo() error {

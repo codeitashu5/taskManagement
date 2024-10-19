@@ -10,17 +10,6 @@ import (
 
 const (
 	// The AccessTokenDuration should be relatively short - think of the access token as a cached identity proof.
-	//
-	// Mercury will trust a valid access token for its entire duration and will not check the userDB until a new
-	// token is generated. If a user is deleted, they will still have access until their token expires.
-	//
-	// There is a security/usability tradeoff here: the higher the duration, the greater the chance the token is
-	// leaked or abused. But a value which is too low makes it hard to work with the Axle API for development (both
-	// our own developers and new consumers of the Axle API that are integrating with Axle for the first time.)
-	//
-	// Right now, we're willing to err in favor of usability, so this is long enough to cover a workday.
-	//
-	// TODO: invalidate deleted task more quickly
 	AccessTokenDuration = 12 * time.Hour
 )
 
