@@ -8,18 +8,6 @@ This is a GoLang API for managing tasks. It provides functionalities for registe
 * Task Creation, Retrieval (Single and All), Update, and Deletion
 * JWT Authentication (for secure access)
 
-## Environment Variables
-
-| Variable                  | Description                                           |
-|---------------------------|-------------------------------------------------------|
-| DB_NAME                   | ashutosh                                              |
-| DB_PASSWORD               | rtx2080ti                                             |
-| JWT_KEY                   |  task-management-jwt-key                              |
-| USER_COLLECTION           |  task                                                 |
-| TASK_COLLECTION           |  user                                                 |
--------------------------------------------------------------------------------------
-## API Documentation
-
 **Base URL:** 
 `http://localhost:5000/users`
 
